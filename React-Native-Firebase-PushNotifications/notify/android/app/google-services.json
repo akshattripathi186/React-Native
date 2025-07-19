@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "269856718368",
+    "project_id": "hurricane-21799",
+    "storage_bucket": "hurricane-21799.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269856718368:android:5a9480294f17f6a8f04645",
+        "android_client_info": {
+          "package_name": "com.hurricane.notify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgXL2nN0fvFo1nWhDL_7LKqCzriF-ClHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
