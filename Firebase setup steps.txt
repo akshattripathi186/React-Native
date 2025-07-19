@@ -1,0 +1,186 @@
+How to Set Up Firebase Push Notifications in Android (Step-by-Step Guide):
+
+
+1.Step 1: First run this command for initialize a bare React Native project
+
+          npx @react-native-community/cli init myapp  👉  Replace 'myapp' with your desired app name.
+
+2.Step 2: Than navigate to your app directory and run those command:
+    
+          cd myapp
+          npx react-native start   👉 This command launches the Metro Bundler, which is a JavaScript bundler specifically built for React Native.
+          It compiles and serves your JavaScript code to the mobile app, ensuring live reloading and fast refresh during development.
+          npx react-native run-android  👉 Run on Android emulator/device
+
+3.Step 3: Install Required Packages
+
+          npm install @react-native-firebase/app @react-native-firebase/messaging
+
+       a) npm i @react-native-firebase/app 👉 This is the **base package** for using any Firebase services   
+
+           in a React Native app.It initializes Firebase in your project and connects your app to your    
+
+           Firebase project (via the `google-services.json` file).
+
+       b) npm i @react-native-firebase/messaging 👉 This is the specific package for Firebase Cloud 
+
+          Messaging (FCM). It allows your app to receive push notifications in both foreground and cc   
+
+          background. Without this, your app can't receive or manage push notifications from Firebase.
+
+4.Step 4: Setup Firebase Project
+
+       a) Go to Firebase Console 👉 Get Started with a Firebase Project / create a Firebase Project
+
+       b) Create a new project.
+
+       c) Add Firebase to your Android app (Register App)
+
+       d) Download the **google-services.json (for Android).
+
+       e) Place `google-services.json` in android/app/google-services.json
+
+       f) we will click on Cloud Messaging option.
+
+       g) Than we will click on Create your first Campaign.
+
+
+5.Step 5: Edit android/build.gradle: 📂
+       buildscript {
+         dependencies {
+            classpath 'com.google.gms:google-services:4.3.15' // or latest
+         }
+       }
+
+
+6.Step 6: Edit android/app/build.gradle: 📂
+
+       apply plugin: 'com.google.gms.google-services'
+
+7.Step 7: Ensure your app has permissions to receive notifications. Add these permissions in AndroidManifest.xml: 📂
+
+       <uses-permission android:name="android.permission.INTERNET"/>
+       <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+8.Step 8: we need to make sure our app name matches the one registered in Firebase.
+
+       You can find the package name in google-services.json under: 
+
+       "package_name":  "com.example.yourapp"
+
+       Make sure this matches your applicationId in build.gradle.
+
+9.Step 9: After updating the applicationId in build.gradle, you also need to make sure the package name is consistent in your Kotlin source files.
+       Update these two files: 📂
+
+       📍 android/app/src/main/java/com/yourappname/MainActivity.kt
+
+       📍 android/app/src/main/java/com/yourappname/MainApplication.kt
+
+10.Step 10: Run: npm run android (Run the command to make sure app is running successfully after follow all the steps).
+
+11. Step 11: Now we need to make apk for testing purpose Now we need to create the JavaScript bundle and assets required for building the APK.
+
+        Run the following command:
+
+        npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
+
+
+12. Step 12: Once you build the release APK, you can send it to your device for installation.
+
+         The release APK will be located at: 📂
+          
+         android/app/build/outputs/apk/debug/app-debug.apk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
